@@ -13,6 +13,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.util.Random;
+
 public class Main extends Application {
 
     private static final double WIDTH = 800;
@@ -30,6 +32,14 @@ public class Main extends Application {
     private double vx=5;
     private double vy =2;
 
+    private void intKula()
+    {
+        Random lott = new Random();
+        x=lott.nextDouble()*ARENAWIDTH+ARENAX1;
+        y=lott.nextDouble()*ARENAHEIGHT+ARENAY1;
+        vx=5+lott.nextDouble()*20;
+        vy=5+lott.nextDouble()*20;
+    }
 
     private void run(GraphicsContext gc)
     {
@@ -45,6 +55,8 @@ public class Main extends Application {
         gc.setFill(Color.WHITESMOKE);
         gc.fillOval(x-R,y-R,2*R, 2*R);
     }
+
+
 
 
     @Override
