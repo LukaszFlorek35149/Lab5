@@ -5,12 +5,12 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class Kulka {
-    private final double R = 10;
     protected double ySpeed;
     protected double xSpeed;
     protected double xPos;
     protected double yPos;
     private Color color;
+    private double radius;
 
     public Color getColor()
     {
@@ -22,6 +22,15 @@ public class Kulka {
         this.color = color;
     }
 
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+
     Kulka(double xPos,double yPos, double xSpeed, double ySpeed)
     {
         this.xPos = xPos;
@@ -29,6 +38,8 @@ public class Kulka {
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
         color = Color.WHITESMOKE;
+        radius = 10;
+
     }
 
     Kulka(double xPos,double yPos, double xSpeed, double ySpeed, Color color)
@@ -36,19 +47,26 @@ public class Kulka {
         this(xPos,yPos,xSpeed,ySpeed);
         this.color = color;
     }
+    Kulka(double xPos,double yPos, double xSpeed, double ySpeed, Color color,double radius)
+    {
+        this(xPos,yPos,xSpeed,ySpeed);
+        this.color = color;
+        this.radius = radius;
+    }
+
 
     public void checkBoundaryCollision(double xLeft, double yTop, double xRight, double yBottom)
     {
-        if ((xPos <= xLeft+R) || (xPos >= xRight-R))
+        if ((xPos <= xLeft+radius) || (xPos >= xRight-radius))
             xSpeed=-xSpeed;
-        if ((yPos <= yTop+R) || (yPos >= yBottom-R))
+        if ((yPos <= yTop+radius) || (yPos >= yBottom-radius))
             ySpeed=-ySpeed;
     }
 
     public void draw(GraphicsContext gc)
     {
         gc.setFill(color);
-        gc.fillOval(xPos-R,yPos - R,2*R,2*R);
+        gc.fillOval(xPos-radius,yPos - radius,2*radius,2*radius);
     }
 
     public void update()

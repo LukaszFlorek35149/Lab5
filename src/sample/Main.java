@@ -26,7 +26,6 @@ public class Main extends Application {
     private static final double ARENAY1 = MARGIN;
     private static final double ARENAX2 = ARENAX1 + ARENAWIDTH;
     private static final double ARENAY2 = ARENAY1 + ARENAHEIGHT;
-    private static final double R = 10;
     private static final int LICZBAKULEK = 10;
     private Kulka[] kulki = new Kulka[LICZBAKULEK];
 
