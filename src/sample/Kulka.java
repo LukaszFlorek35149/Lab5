@@ -40,6 +40,7 @@ public class Kulka {
         color = Color.WHITESMOKE;
         radius = 10;
 
+
     }
 
     Kulka(double xPos,double yPos, double xSpeed, double ySpeed, Color color)
