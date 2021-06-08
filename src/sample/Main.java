@@ -33,7 +33,7 @@ public class Main extends Application {
     private void intKula()
     {
         Random lott = new Random();
-        for(int i=0; i<LICZBAKULEK; i++)
+        for(int i=0; i< LICZBAKULEK; i++)
         {
             kulki[i]= new Kulka(
                     lott.nextDouble()*ARENAWIDTH+ARENAX1,
