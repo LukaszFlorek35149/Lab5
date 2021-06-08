@@ -9,8 +9,8 @@ public class Kulka {
     protected double xSpeed;
     protected double xPos;
     protected double yPos;
-    private Color color;
-    private double radius;
+    protected Color color;
+    protected double radius;
 
     public Color getColor()
     {

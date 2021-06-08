@@ -26,9 +26,10 @@ public class Main extends Application {
     private static final double ARENAY1 = MARGIN;
     private static final double ARENAX2 = ARENAX1 + ARENAWIDTH;
     private static final double ARENAY2 = ARENAY1 + ARENAHEIGHT;
-    private static final int LICZBAKULEK = 10;
+    private static final int LICZBAKULEK = 12;
+    private static final int LICZBARUGBY = 8;
     private Kulka[] kulki = new Kulka[LICZBAKULEK];
-
+    private Rugby[] rugby = new Rugby[LICZBARUGBY];
 
     private void intKula()
     {
@@ -44,6 +45,20 @@ public class Main extends Application {
         }
     }
 
+    private void initRugby() {
+        Random random = new Random();
+
+        for (int i=0; i<LICZBARUGBY; i++)
+            rugby[i] = new Rugby(
+                    random.nextDouble()*ARENAWIDTH+ARENAX1,
+                    random.nextDouble()*ARENAHEIGHT+ARENAY1,
+                    5+random.nextDouble()*3,
+                    5+random.nextDouble()*3,
+                    Color.PERU,
+                    15.0,
+                    10.0);
+    }
+
     private void run(GraphicsContext gc)
     {
         gc.setFill(Color.BLACK);
@@ -54,6 +69,13 @@ public class Main extends Application {
             kulki[i].checkBoundaryCollision(ARENAX1, ARENAY1, ARENAX2, ARENAY2);
             kulki[i].update();
             kulki[i].draw(gc);
+        }
+
+        for(int i=0; i<LICZBARUGBY; i++)
+        {
+            rugby[i].checkBoundaryCollision(ARENAX1, ARENAY1, ARENAX2, ARENAY2);
+            rugby[i].update();
+            rugby[i].draw(gc);
         }
 
 
@@ -71,6 +93,7 @@ public class Main extends Application {
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
         intKula();
+        initRugby();
         Timeline t = new Timeline(new KeyFrame(Duration.millis(10),e-> run(gc)));
         t.setCycleCount(Timeline.INDEFINITE);
 
