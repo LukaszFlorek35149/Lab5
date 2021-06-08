@@ -54,6 +54,7 @@ public class Main extends Application {
                     random.nextDouble()*ARENAHEIGHT+ARENAY1,
                     5+random.nextDouble()*3,
                     5+random.nextDouble()*3,
+                    3,
                     Color.PERU,
                     15.0,
                     10.0);
